@@ -1,0 +1,45 @@
+@import 'style/color';
+@import 'style/variable';
+
+.article {
+  display: flex;
+  width: 600px;
+  margin-bottom: 2rem;
+  cursor: pointer;
+  padding: 1rem;
+  transition: $transition;
+
+  &__body {
+    flex: 1;
+
+    &--title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: $teal;
+      line-height: 1.5rem;
+      word-spacing: -1px;
+    }
+
+    &--content {
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
+  }
+
+  &__image {
+    min-width: 200px;
+    min-height: 135px;
+    overflow: hidden;
+
+    img {
+      width: 200px;
+      height: 135px;
+      object-fit: cover;
+    }
+  }
+
+  &:hover {
+    background-color: $black-hover;
+  }
+}
