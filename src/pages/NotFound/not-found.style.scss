@@ -1,0 +1,33 @@
+@import 'style/color';
+@import 'style/variable';
+
+.resultPage {
+  min-height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    margin-block: 5px;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  button {
+    all: unset;
+    background-color: $teal;
+    padding: 5px 8px;
+    border-radius: 5px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: $transition;
+
+    &:hover {
+      background-color: lighten($teal, 8%);
+    }
+  }
+}

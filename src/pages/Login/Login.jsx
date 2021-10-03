@@ -15,10 +15,13 @@ const Login = () => {
 
   useEffect(() => {
     const user = localStorageGetter('user');
-    validateUser(user.email, user.password);
 
-    if (user.email && user.password) {
-      history.push('/');
+    if (user) {
+      validateUser(user.email, user.password);
+
+      if (user.email && user.password) {
+        history.push('/');
+      }
     }
   }, [history]);
 

@@ -23,4 +23,18 @@ const validateUser = (email, password) => {
 
 const waitFor = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
-export { localStorageSetter, localStorageGetter, validateUser, waitFor };
+const debounce = (callback, delay) => {
+  let timeoutId;
+  return (...args) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback(...args), delay);
+  };
+};
+
+export {
+  localStorageSetter,
+  localStorageGetter,
+  validateUser,
+  waitFor,
+  debounce,
+};
