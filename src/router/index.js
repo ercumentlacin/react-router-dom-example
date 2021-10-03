@@ -1,7 +1,10 @@
+import Spinner from 'components/Spinner';
 import ArticalPage from 'pages/ArticalPage';
 import Home from 'pages/Home';
-import Login from 'pages/Login';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+const LoginRoute = lazy(() => import('pages/Login'));
 
 const routeItems = [
   {
@@ -11,7 +14,7 @@ const routeItems = [
   },
   {
     path: '/login',
-    component: Login,
+    component: LoginRoute,
     exact: false,
   },
   {
@@ -27,9 +30,11 @@ const renderRouteItems = () =>
   ));
 
 const router = () => (
-  <Router>
-    <Switch>{renderRouteItems()}</Switch>
-  </Router>
+  <Suspense fallback={<Spinner variant='big' />}>
+    <Router>
+      <Switch>{renderRouteItems()}</Switch>
+    </Router>
+  </Suspense>
 );
 
 export default router;

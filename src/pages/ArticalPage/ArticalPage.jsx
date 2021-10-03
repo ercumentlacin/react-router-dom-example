@@ -1,5 +1,6 @@
 import { fetchPost } from 'agent';
 import PagePace from 'components/PagePace';
+import Spinner from 'components/Spinner';
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -27,7 +28,7 @@ const ArticalPage = () => {
 
   const { data, error, loading } = post;
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner variant='big' />;
   if (error) return <div>Error: {error.message}</div>;
 
   const { body, id, title } = data;

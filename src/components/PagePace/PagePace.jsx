@@ -4,8 +4,6 @@ import './page-pace.style.scss';
 const PagePace = ({ selectedPageId }) => {
   const history = useHistory();
 
-  console.log(history);
-
   const nextPageId = Number(selectedPageId) + 1;
 
   const goToPage = (choose) => {

@@ -1,6 +1,9 @@
 import { fetchPost } from 'agent';
 import Article from 'components/Article';
+import Spinner from 'components/Spinner';
 import { useEffect, useRef, useState } from 'react';
+
+import './home.style.scss';
 
 const Home = () => {
   const [posts, setPosts] = useState({
@@ -21,13 +24,13 @@ const Home = () => {
     return () => (mounted.current = true);
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Spinner variant='big' />;
   if (error) return <div>Error: {error.message}</div>;
 
   const renderArticles = () =>
     data.map((article) => <Article key={article.id} article={article} />);
 
-  return <div className='container'>{renderArticles()}</div>;
+  return renderArticles();
 };
 
 export default Home;

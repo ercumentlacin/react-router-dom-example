@@ -1,0 +1,104 @@
+@import 'style/color';
+@import 'style/variable';
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.login {
+  // background: pink;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+  padding: 1rem;
+  color: $white;
+
+  h1 {
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid gray;
+    font-weight: normal;
+    font-size: 2.5rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+
+      strong {
+        margin-bottom: 5px;
+      }
+
+      input:-webkit-autofill,
+      input:-webkit-autofill:hover,
+      input:-webkit-autofill:focus,
+      textarea:-webkit-autofill,
+      textarea:-webkit-autofill:hover,
+      textarea:-webkit-autofill:focus,
+      select:-webkit-autofill,
+      select:-webkit-autofill:hover,
+      select:-webkit-autofill:focus {
+        border: 1px solid $teal;
+        -webkit-text-fill-color: $white;
+        -webkit-box-shadow: 0 0 0px 1000px $black-hover inset;
+        transition: background-color 5000s ease-in-out 0s;
+      }
+
+      input {
+        all: unset;
+        cursor: pointer;
+        height: 2rem;
+        border-radius: 8px;
+        padding-inline: 8px;
+        line-height: 2rem;
+        border: 1px solid gray;
+        background-color: $black-dark !important;
+
+        &.error {
+          border-color: $red;
+        }
+      }
+
+      .errorWrapper {
+        margin-top: 8px;
+        color: $red;
+        display: flex;
+        align-items: baseline;
+
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+    button {
+      all: unset;
+      cursor: pointer;
+      display: flex;
+      width: 100%;
+      background-color: $teal;
+      justify-content: center;
+      padding-block: 0.5rem;
+      border-radius: 8px;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      transition: $transition;
+
+      &:hover {
+        background: lighten($teal, 5%);
+      }
+
+      &:disabled {
+        cursor: wait;
+      }
+    }
+  }
+}
